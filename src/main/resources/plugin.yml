@@ -1,0 +1,4 @@
+name: Anvilcolorname
+version: '${project.version}'
+main: me.xingyan.anvilcolorname.Anvilcolorname
+api-version: 1.15
