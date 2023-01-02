@@ -25,9 +25,10 @@ public final class Anvilcolorname extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onchangename(PrepareAnvilEvent event){
-        ItemMeta itemmeta = Objects.requireNonNull(event.getResult()).getItemMeta();
-        assert itemmeta != null;
-        itemmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', itemmeta.getDisplayName()));
+        if(event.getResult()==null) return;
+        ItemMeta itemmeta = event.getResult().getItemMeta();
+        if(event.getInventory().getRenameText().isEmpty()) return;
+        itemmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', event.getInventory().getRenameText()));
         event.getResult().setItemMeta(itemmeta);
     }
 
